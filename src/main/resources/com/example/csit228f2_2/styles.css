@@ -1,3 +1,34 @@
 .root {
-    -fx-background-color: black;
+     -fx-background-image: url(bg_image.jpg);
+     -fx-font-family: "Sans Serif";
+}
+
+.login-button {
+    -fx-background-color: #002D62;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+
+}
+
+.login-button:hover {
+    -fx-background-color: #0066b2;
+
+}
+
+.register-button {
+    -fx-background-color: #002D62;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+
+}
+
+.register-button:hover {
+    -fx-background-color: #0066b2;
+
 }
