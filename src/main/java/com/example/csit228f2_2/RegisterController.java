@@ -37,7 +37,7 @@ public class RegisterController {
 
             int rowsInserted = statement.executeUpdate();
             if(rowsInserted > 0){
-                successMessage.setText("Registration successful for " + username);
+                successMessage.setText("Registration successful!");
                 failureMessage.setText("");
             }
 

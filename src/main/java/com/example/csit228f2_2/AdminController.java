@@ -21,6 +21,9 @@ public class AdminController {
     private Button openUpdateScreen;
 
     @FXML
+    private Button openDeleteScreen;
+
+    @FXML
     private void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
@@ -34,6 +37,18 @@ public class AdminController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(updateScene);
         stage.setTitle("Update User");
+        stage.show();
+    }
+
+    @FXML
+    public void openDeleteScreen(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("delete.fxml"));
+        Parent updateRoot = loader.load();
+        Scene updateScene = new Scene(updateRoot);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(updateScene);
+        stage.setTitle("Delete User");
         stage.show();
     }
 }
