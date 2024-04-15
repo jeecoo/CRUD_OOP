@@ -38,12 +38,21 @@ public class LoginController {
             ResultSet resultSet = statement.executeQuery(selectQuery);
 
             if (resultSet.next()) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-                Scene scene = new Scene(loader.load());
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.setTitle("Welcome");
-                stage.show();
+                if (username.equals("admin") && password.equals("admin")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("admin.fxml"));
+                    Scene scene = new Scene(loader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Admin Panel");
+                    stage.show();
+                } else {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+                    Scene scene = new Scene(loader.load());
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Welcome");
+                    stage.show();
+                }
             } else {
                 actionTarget.setText("Invalid username/password");
             }
@@ -51,6 +60,7 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
 
 
     @FXML

@@ -32,3 +32,19 @@
     -fx-background-color: #0066b2;
 
 }
+
+
+.save-button {
+    -fx-background-color: #FFC72C;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+
+}
+
+.save-button:hover {
+    -fx-background-color: #F0E68C;
+
+}

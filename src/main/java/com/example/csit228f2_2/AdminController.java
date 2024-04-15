@@ -13,27 +13,27 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
-    public ToggleButton tbNight;
+public class AdminController {
     @FXML
     private Label welcomeText;
-//
+    //
     @FXML
     private Button openUpdateScreen;
-//
+
     @FXML
     private void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
     @FXML
-    private void onNightModeClick() {
-        if (tbNight.isSelected()) {
-            // night mode
-            tbNight.getScene().getStylesheets().add(
-                    getClass().getResource("styles.css").toExternalForm());
-        } else {
-            tbNight.getScene().getStylesheets().clear();
-        }
+    public void openUpdateScreen(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("update.fxml"));
+        Parent updateRoot = loader.load();
+        Scene updateScene = new Scene(updateRoot);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(updateScene);
+        stage.setTitle("Update User");
+        stage.show();
     }
 }
