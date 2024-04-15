@@ -24,7 +24,7 @@
                 <PasswordField fx:id="pfPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Button layoutX="50.0" layoutY="128.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="67.0" styleClass="login-button" text="Log In" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Button layoutX="132.0" layoutY="128.0" mnemonicParsing="false" onAction="#openRegistration" prefHeight="31.0" prefWidth="119.0" styleClass="register-button" text="Register" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                <Label fx:id="actionTarget" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="actionTarget" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
         </GridPane>
     </children>
