@@ -24,6 +24,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +40,18 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         users = new ArrayList<>();
-        // LOAD USERS
-        users.add(new User("tsgtest", "123456"));
-        users.add(new User("jayvince", "secret"));
-        users.add(new User("russselll", "palma"));
+
+        try (Connection connection = MySQLConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM user");
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                users.add(new User(username, password));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         AnchorPane pnMain = new AnchorPane();
         GridPane grid = new GridPane();
@@ -99,17 +111,16 @@ public class HelloApplication extends Application {
             }
         });
 
-        Button btnSignIn = new Button("Sign In");
-        btnSignIn.setFont(Font.font(45));
-        HBox hbSignIn = new HBox();
-        hbSignIn.getChildren().add(btnSignIn);
-        hbSignIn.setAlignment(Pos.CENTER);
-        grid.add(hbSignIn, 0, 3, 2, 1);
+        Button btnLogIn = new Button("Sign In");
+        btnLogIn.setFont(Font.font(45));
+        HBox hbLogIn = new HBox();
+        hbLogIn.getChildren().add(btnLogIn);
+        hbLogIn.setAlignment(Pos.CENTER);
+        grid.add(hbLogIn, 0, 3, 2, 1);
         final Text actionTarget = new Text("Hi");
         actionTarget.setFont(Font.font(30));
         grid.add(actionTarget, 1, 6);
-
-        btnSignIn.setOnAction(new EventHandler<ActionEvent>() {
+        btnLogIn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String username = tfUsername.getText();
@@ -128,6 +139,35 @@ public class HelloApplication extends Application {
                 }
                 actionTarget.setText("Invalid username/password");
                 actionTarget.setOpacity(1);
+            }
+        });
+
+        Button btnSignIn = new Button("Sign In");
+        btnSignIn.setFont(Font.font(45));
+        HBox hbSignIn = new HBox();
+        hbSignIn.getChildren().add(btnSignIn);
+        hbSignIn.setAlignment(Pos.CENTER);
+        grid.add(hbSignIn, 0, 3, 2, 1);
+       // final Text actionTarget = new Text();
+        btnSignIn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String username = tfUsername.getText();
+                String password = pfPassword.getText();
+
+                try(Connection c = MySQLConnection.getConnection();
+                    PreparedStatement statement = c.prepareStatement(
+                            "INSERT INTO users (username, password) VALUES (?, ?)")) {
+
+                    statement.setString(1, username);
+                    statement.setString(2, password);
+                    int rowsInserted = statement.executeUpdate();
+
+                    if(rowsInserted > 0)
+                        System.out.println("Data Inserted Successfully");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
