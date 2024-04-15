@@ -111,7 +111,7 @@ public class HelloApplication extends Application {
             }
         });
 
-        Button btnLogIn = new Button("Sign In");
+        Button btnLogIn = new Button("Log In");
         btnLogIn.setFont(Font.font(45));
         HBox hbLogIn = new HBox();
         hbLogIn.getChildren().add(btnLogIn);
@@ -142,34 +142,59 @@ public class HelloApplication extends Application {
             }
         });
 
-        Button btnSignIn = new Button("Sign In");
-        btnSignIn.setFont(Font.font(45));
-        HBox hbSignIn = new HBox();
-        hbSignIn.getChildren().add(btnSignIn);
-        hbSignIn.setAlignment(Pos.CENTER);
-        grid.add(hbSignIn, 0, 3, 2, 1);
-       // final Text actionTarget = new Text();
-        btnSignIn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                String username = tfUsername.getText();
-                String password = pfPassword.getText();
+//        Button btnSignIn = new Button("Sign In");
+//        btnSignIn.setFont(Font.font(45));
+//        HBox hbSignIn = new HBox();
+//        hbSignIn.getChildren().add(btnSignIn);
+//        hbSignIn.setAlignment(Pos.CENTER);
+//        grid.add(hbSignIn, 0, 3, 2, 1);
+//        final Text actionTarget2 = new Text();
+//        actionTarget.setFont(Font.font(30));
+//        grid.add(actionTarget, 1, 6);
 
-                try(Connection c = MySQLConnection.getConnection();
-                    PreparedStatement statement = c.prepareStatement(
-                            "INSERT INTO users (username, password) VALUES (?, ?)")) {
+//        btnSignIn.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                String username = tfUsername.getText();
+//                String password = pfPassword.getText();
+//                for (User user : users) {
+//                    if (username.equals(user.username) && password.equals(user.password)) {
+//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+//                        try {
+//                            Scene scene = new Scene(loader.load());
+//                            stage.setScene(scene);
+//                            stage.show();
+//                        } catch (IOException e) {
+//                            throw new RuntimeException(e);
+//                        }
+//                    }
+//                }
+//                actionTarget.setText("Invalid username/password");
+//                actionTarget.setOpacity(1);
+//            }
+//        });
 
-                    statement.setString(1, username);
-                    statement.setString(2, password);
-                    int rowsInserted = statement.executeUpdate();
-
-                    if(rowsInserted > 0)
-                        System.out.println("Data Inserted Successfully");
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        btnSignIn.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                String username = tfUsername.getText();
+//                String password = pfPassword.getText();
+//
+//                try(Connection c = MySQLConnection.getConnection();
+//                    PreparedStatement statement = c.prepareStatement(
+//                            "INSERT INTO users (username, password) VALUES (?, ?)")) {
+//
+//                    statement.setString(1, username);
+//                    statement.setString(2, password);
+//                    int rowsInserted = statement.executeUpdate();
+//
+//                    if(rowsInserted > 0)
+//                        System.out.println("Data Inserted Successfully");
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
         EventHandler<KeyEvent> fieldChange = new EventHandler<KeyEvent>() {
             @Override
