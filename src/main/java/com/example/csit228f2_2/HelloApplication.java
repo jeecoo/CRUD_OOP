@@ -12,6 +12,8 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        MySQLConnection.createTableUser();
+        MySQLConnection.createTableClass();
         // Load the login screen
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent loginRoot = loginLoader.load();

@@ -34,7 +34,7 @@ public class LoginController {
         try (Connection connection = MySQLConnection.getConnection();
              Statement statement = connection.createStatement()){
 
-            String selectQuery = "SELECT * FROM user WHERE username = '" + username + "' AND password = '" + password + "'";
+            String selectQuery = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'";
             ResultSet resultSet = statement.executeQuery(selectQuery);
 
             if (resultSet.next()) {
@@ -46,7 +46,7 @@ public class LoginController {
                     stage.setTitle("Admin Panel");
                     stage.show();
                 } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("displaysched.fxml"));
                     Scene scene = new Scene(loader.load());
                     Stage stage = new Stage();
                     stage.setScene(scene);

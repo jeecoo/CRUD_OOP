@@ -30,7 +30,7 @@ public class RegisterController {
 
         try (Connection connection = MySQLConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO user (username, password) VALUES (?, ?)")){
+                     "INSERT INTO users (username, password) VALUES (?, ?)")){
 
             statement.setString(1, username);
             statement.setString(2, password);
