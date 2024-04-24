@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228f2_2.LoginPageController">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" style="-fx-background-color: #FEBE10;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="133.0" prefHeight="18.0" prefWidth="230.0" text="ezSched" textAlignment="CENTER" textFill="#515151">
+               <font>
+                  <Font name="Haettenschweiler" size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="159.0" prefHeight="18.0" prefWidth="230.0" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Haettenschweiler" size="75.0" />
+               </font>
+            </Label>
+            <Line endX="91.80000305175781" endY="-1.52587890625E-5" layoutX="118.0" layoutY="165.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="24.0" layoutY="114.0" text="Username">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="99.0" layoutY="111.0" prefHeight="26.0" prefWidth="166.0" promptText="Enter username">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></TextField>
+            <Label layoutX="24.0" layoutY="160.0" text="Password">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordPasswordField" layoutX="99.0" layoutY="157.0" prefHeight="27.0" prefWidth="164.0" promptText="Enter password" />
+            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" layoutX="26.0" layoutY="208.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="34.0" prefWidth="238.0" style="-fx-background-color: #FEBE10; -fx-background-radius: 5;" text="Login" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow height="1.0" offsetY="1.0" radius="0.0" width="0.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="cancelButton" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" layoutX="25.0" layoutY="254.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="34.0" prefWidth="239.0" style="-fx-background-color: #FEBE10; -fx-background-radius: 5;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow height="1.0" offsetY="1.0" radius="0.0" width="0.0" />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="24.0" layoutY="72.0" prefHeight="24.0" prefWidth="241.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="JetBrains Mono Thin" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="318.0" text="Don't have an account?">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="Register" layoutX="190.0" layoutY="318.0" onMouseClicked="#openRegistration" text="Register" textAlignment="CENTER" textFill="#febe10" underline="true">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Label>
+         </children></AnchorPane>
+   </right>
+</BorderPane>

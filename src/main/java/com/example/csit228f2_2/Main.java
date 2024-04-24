@@ -6,16 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class HelloApplication extends Application {
+public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         MySQLConnection.createTableUser();
-        MySQLConnection.createTableClass();
+        MySQLConnection.createTableSchedule();
         // Load the login screen
-        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
         Parent loginRoot = loginLoader.load();
         Scene loginScene = new Scene(loginRoot);
 
@@ -24,12 +22,13 @@ public class HelloApplication extends Application {
         Parent registerRoot = registerLoader.load();
         Scene registerScene = new Scene(registerRoot);
 
-        loginScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-        registerScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+//        loginScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+  //     registerScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
 
         primaryStage.setScene(loginScene);
         primaryStage.setTitle("Login");
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
