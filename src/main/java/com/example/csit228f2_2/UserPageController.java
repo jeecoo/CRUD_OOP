@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,10 +42,7 @@ public class UserPageController {
     @FXML
     private TableColumn<Schedule, String> instructorNameColumn;
 
-
     public void initialize() {
-        String username = userLabel.getText();
-        setUsername(username);
         courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
         startTimeColumn.setCellValueFactory(new PropertyValueFactory<>("startTime"));
         endTimeColumn.setCellValueFactory(new PropertyValueFactory<>("endTime"));
@@ -54,16 +52,10 @@ public class UserPageController {
         populateTableView();
     }
 
-//    private void populateTableView() {
-//        String username = userLabel.getText();
-//        ObservableList<Schedule> schedules = FXCollections.observableArrayList(fetchDataFromDatabase(username));
-//        scheduleTableView.setItems(schedules);
-//    }
-
     private void populateTableView() {
-
+        String username = userLabel.getText();
+        setUsername(username);
         List<Schedule> schedules = fetchDataFromDatabase();
-
         scheduleTableView.getItems().clear();
         scheduleTableView.getItems().addAll(schedules);
     }
@@ -97,6 +89,7 @@ public class UserPageController {
 //        }
 //        return schedules;
 //    }
+
 
     private List<Schedule> fetchDataFromDatabase() {
         List<Schedule> schedules = new ArrayList<>();
@@ -150,12 +143,12 @@ public class UserPageController {
     public void openCreateSchedule(ActionEvent event) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateSchedule.fxml"));
-            Parent deleteRoot = loader.load();
-            Scene deleteScene = new Scene(deleteRoot);
+            Parent createRoot = loader.load();
+            Scene createScene = new Scene(createRoot);
             CreateScheduleController controller = loader.getController();
             controller.setUsername(userLabel.getText());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(deleteScene);
+            stage.setScene(createScene);
             stage.setTitle("Create Schedule");
             stage.show();
         } catch (IOException e) {
@@ -164,14 +157,40 @@ public class UserPageController {
         }
     }
 
-//    @FXML
-//    public void openEditSchedule(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminUpdateUser.fxml"));
-//        Parent updateRoot = loader.load();
-//        Scene updateScene = new Scene(updateRoot);
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        stage.setScene(updateScene);
-//        stage.setTitle("Update User");
-//        stage.show();
-//    }
+    @FXML
+    public void openEditSchedule(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditSchedule.fxml"));
+            Parent editRoot = loader.load();
+            Scene editScene = new Scene(editRoot);
+            EditScheduleController controller = loader.getController();
+            controller.setUsername(userLabel.getText());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(editScene);
+            stage.setTitle("Edit Schedule");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Error loading EditSchedule.fxml: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    public void openDeleteSchedule(ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DeleteSchedule.fxml"));
+            Parent deleteRoot = loader.load();
+            Scene deleteScene = new Scene(deleteRoot);
+            DeleteScheduleController controller = loader.getController();
+            controller.setUsername(userLabel.getText());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(deleteScene);
+            stage.setTitle("Delete Schedule");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Error loading DeleteSchedule.fxml: " + e.getMessage());
+        }
+    }
+
 }

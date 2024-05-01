@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.input.*?>
+<!--<?import javafx.scene.control.*?>-->
+<!--<?import javafx.scene.layout.*?>-->
+<!--<?import javafx.scene.text.*?>-->
+<!--<?import javafx.scene.input.*?>-->
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.csit228f2_2.ClassController"
-            prefHeight="400.0" prefWidth="600.0">
+<!--<AnchorPane xmlns="http://javafx.com/javafx"-->
+<!--            xmlns:fx="http://javafx.com/fxml"-->
+<!--            fx:controller="com.example.csit228f2_2.ClassController"-->
+<!--            prefHeight="400.0" prefWidth="600.0">-->
 
-    <!-- Add Class Schedule Section -->
-    <VBox layoutX="50" layoutY="50" spacing="10">
-        <Text text="Add Class Schedule" />
-        <TextField fx:id="courseNameField" promptText="Course Name" />
-        <TextField fx:id="classTimeField" promptText="Class Time" />
-        <TextField fx:id="locationField" promptText="Location" />
-        <TextField fx:id="instructorField" promptText="Instructor" />
-        <Button text="Add Class Schedule" onAction="#addClassSchedule" />
-    </VBox>
+<!--    &lt;!&ndash; Add Class Schedule Section &ndash;&gt;-->
+<!--    <VBox layoutX="50" layoutY="50" spacing="10">-->
+<!--        <Text text="Add Class Schedule" />-->
+<!--        <TextField fx:id="courseNameField" promptText="Course Name" />-->
+<!--        <TextField fx:id="classTimeField" promptText="Class Time" />-->
+<!--        <TextField fx:id="locationField" promptText="Location" />-->
+<!--        <TextField fx:id="instructorField" promptText="Instructor" />-->
+<!--        <Button text="Add Class Schedule" onAction="#addClassSchedule" />-->
+<!--    </VBox>-->
 
-</AnchorPane>
+<!--</AnchorPane>-->

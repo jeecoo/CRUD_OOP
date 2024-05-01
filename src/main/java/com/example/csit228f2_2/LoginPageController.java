@@ -43,7 +43,7 @@ public class LoginPageController {
             if (!usernameTextField.getText().isEmpty() && !passwordPasswordField.getText().isEmpty()) {
                 loginMessageLabel.setText("Logging in!");
                 if (resultSet.next()) {
-                    String username = resultSet.getString("username");
+                    String  username = resultSet.getString("username");
                     String password = resultSet.getString("password");
                     if (username.equals("admin") && password.equals("admin")) {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminPage.fxml"));

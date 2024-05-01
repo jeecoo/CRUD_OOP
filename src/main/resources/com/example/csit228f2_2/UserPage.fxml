@@ -25,14 +25,14 @@
     <bottom>
         <AnchorPane prefHeight="49.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-            <Label layoutX="31.0" layoutY="11.0" text="ezSched" textFill="#febe10">
+            <Label layoutX="22.0" layoutY="11.0" text="ezSched" textFill="#febe10">
                <font>
                   <Font name="Haettenschweiler" size="25.0" />
                </font>
             </Label>
-            <Button layoutX="170.0" layoutY="13.0" mnemonicParsing="false" onAction="#openCreateSchedule" style="-fx-background-color: #FEBE10;" text="CREATE SCHEDULE" textFill="WHITE">
+            <Button layoutX="116.0" layoutY="13.0" mnemonicParsing="false" onAction="#openCreateSchedule" style="-fx-background-color: #FEBE10;" text="CREATE SCHEDULE" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="Arial Bold" size="11.0" />
                </font>
                <effect>
                   <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
@@ -41,9 +41,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="317.0" layoutY="13.0" mnemonicParsing="false" onAction="#openCreateSchedule" style="-fx-background-color: #FEBE10;" text="EDIT SCHEDULE" textFill="WHITE">
+            <Button layoutX="363.0" layoutY="13.0" mnemonicParsing="false" onAction="#openDeleteSchedule" style="-fx-background-color: #FEBE10;" text="DELETE SCHEDULE" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="Arial Bold" size="11.0" />
                </font>
                <effect>
                   <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
@@ -52,17 +52,28 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-                <Button layoutX="508.0" layoutY="13.0" mnemonicParsing="false" onAction="#openLogin" style="-fx-background-color: #FEBE10;" text="LOGOUT" textFill="WHITE">
-                    <font>
-                        <Font name="Arial Bold" size="12.0" />
-                    </font>
-                    <effect>
-                        <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
-                    </effect>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
+            <Button layoutX="249.0" layoutY="13.0" mnemonicParsing="false" onAction="#openEditSchedule" style="-fx-background-color: #FEBE10;" text="EDIT SCHEDULE" textFill="WHITE">
+                <font>
+                    <Font name="Arial Bold" size="11.0" />
+                </font>
+                <effect>
+                    <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
+                </effect>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button layoutX="517.0" layoutY="13.0" mnemonicParsing="false" onAction="#openLogin" style="-fx-background-color: #FEBE10;" text="LOGOUT" textFill="WHITE">
+                <font>
+                    <Font name="Arial Bold" size="11.0" />
+                </font>
+                <effect>
+                    <DropShadow height="0.0" offsetY="1.0" radius="0.0" width="0.0" />
+                </effect>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
             </children>
         </AnchorPane>
     </bottom>

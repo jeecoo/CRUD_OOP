@@ -25,19 +25,15 @@ public class ClassController {
 
     @FXML
     private void addClassSchedule() {
-        // Get data from text fields
         String courseName = courseNameField.getText();
         String classTime = classTimeField.getText();
         String location = locationField.getText();
         String instructor = instructorField.getText();
 
-        // Create a new ClassSchedule object
         ClassSchedule newClassSchedule = new ClassSchedule(courseName, classTime, location, instructor);
 
-        // Add the new class schedule to the list
-        classScheduleList.add(newClassSchedule);
 
-        // Clear text fields
+        classScheduleList.add(newClassSchedule);
         clearFields();
     }
 
